@@ -58,6 +58,7 @@
 1.  Use suffix as **Set** for variables of data type - Set, eg customReviewSet
 1.  Use suffix as **Map** for variables of data type - Map, eg customReviewMap
 
+
 ## Constants
 1. User **UPPER_CASE** when naming constants and use underscore(_) as seperator.
     ```
@@ -88,6 +89,7 @@
     };    
     ```
     
+    
 ## Enums
 1. Use ProperCase (PascalCase) when naming enums and all the keys should be UPPER_CASE.
     ```
@@ -107,6 +109,31 @@
         LEFT
     }
     ```
+    
+    
+## Functions
+1. 1. Use **camelCase** when naming variables functions.
+    ```
+    // bad
+    function c() {}
+
+    // good
+    function thisIsMyFunction() {}
+    ```
+    
+1.  Functions for handling events should be named as `on<FunctionName><EventName>`.
+    ```
+    // bad
+    function click() {}
+    function onClick() {}
+    function onCancel() {}
+    function whenClickedCancel() {}    
+    function clickingCancel() {}    
+
+    // good
+    function onCancelClick() {}
+    ```
+
 
 ## Classes
 1. Use ProperCase (PascalCase) when naming classes (service, component, module, etc).
@@ -151,6 +178,17 @@
       age:  number;
     }  
     ```
+
+1. Use I(aai) as suffix for interface names, eg CustomerReviewI.
+
+
+## Services
+1. HttpServices name should be appended with Http eg CustomerReviewHttpService.
+    >  HttpServices are those which contains Http Calls for APIs.
+
+1. Business services should be names as a normal service, eg CustomerReviewService
+    >  Business services are those which contain only business logic and no Http Calls.
+
     
 ## Folders
 1. Use **lower-case** when naming folders and use hypehn(-) as seperator.
@@ -163,6 +201,7 @@
     // good
     laguage-translation (using - as seperator)
     ```
+
 
 ## Files
 1. File naming pattern should be `<file-name>.<file-type>.<extension>`.
