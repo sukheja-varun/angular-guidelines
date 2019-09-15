@@ -1,5 +1,4 @@
 ## General (applied to all)
-
 1. Avoid single letter names. Be descriptive with your naming.
     ```
     // bad
@@ -15,8 +14,7 @@
     
     
 ## Variables
-
-1. Use **camelCase** when naming variables for objects, functions, and instances
+1. Use **camelCase** when naming variables for objects, functions, and instances.
     ```
     // bad
     let OBJEcttsssss = {};
@@ -37,6 +35,29 @@
       let myName = 'Varun Sukheja';
     ```
     
+1. Variables for service instance should be prefixed with underscore ( _ ) and shouldn't contain keyword service as suffix.    
+    ```
+    // bad
+    private toast:ToastService  // _ not prefixed
+    private loaderService:LoaderService    // service as suffix not to be used
+    
+    // good
+    private _toast:ToastService
+    ```
+1. Variables for http service instance should be prefixed with underscore ( _ ) and use Http as suffix.    
+    ```
+    // bad
+    private _customerHttp:CustomerReviewHttpService  // _ not prefixed
+    private _loader:LoaderService   // not used Http as suffix
+    private loaderService:LoaderService    // instad of Http as suffix, Service is used
+    
+    // good
+    private _customerHttp:CustomerReviewHttpService
+    ```
+1.  Use suffix as **List** for variables of data type - Array, eg customReviewList
+1.  Use suffix as **Set** for variables of data type - Set, eg customReviewSet
+1.  Use suffix as **Map** for variables of data type - Map, eg customReviewMap
+
 ## Constants
 1. User **UPPER_CASE** when naming constants and use underscore(_) as seperator.
     ```
@@ -66,6 +87,26 @@
       key: 'value'
     };    
     ```
+    
+## Enums
+1. Use ProperCase (PascalCase) when naming enums and all the keys should be UPPER_CASE.
+    ```
+    // bad
+    enum myDirection {
+        up,
+        right,
+        down,
+        left
+    }
+    
+    // good
+    enum MyDirections {
+        UP,
+        RIGHT,
+        DOWN,
+        LEFT
+    }
+    ```
 
 ## Classes
 1. Use ProperCase (PascalCase) when naming classes (service, component, module, etc).
@@ -92,9 +133,10 @@
       name: 'yup',
     });
    ``` 
+1. Use UPPER_CASE naming for **readonly** class properties.
+    
 
 ## Interfaces
-
 1. Use ProperCase (PascalCase) when naming interfaces.
     ```
     // bad
