@@ -191,3 +191,44 @@ Use undefined. Do not use null.
     // good
     const arr = Array.from(arrLike);
     ```    
+
+
+## Destructuring
+
+1. Use object destructuring when accessing and using multiple properties of an object.
+
+    > Why? Destructuring saves you from creating temporary references for those properties.
+
+    ```javascript
+    // bad
+    function getFullName(user) {
+      const firstName = user.firstName;
+      const lastName = user.lastName;
+
+      return `${firstName} ${lastName}`;
+    }
+
+    // good
+    function getFullName(user) {
+      const { firstName, lastName } = user;
+      return `${firstName} ${lastName}`;
+    }
+
+    // best
+    function getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
+    }
+    ```
+
+1. Use array destructuring.
+
+    ```javascript
+    const arr = [1, 2, 3, 4];
+
+    // bad
+    const first = arr[0];
+    const second = arr[1];
+
+    // good
+    const [first, second] = arr;
+    ```
