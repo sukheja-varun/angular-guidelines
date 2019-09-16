@@ -182,6 +182,18 @@
 1. Use I(aai) as suffix for interface names, eg CustomerReviewI.
 
 
+## Types
+1. Use ProperCase (PascalCase) when naming types.
+    ```
+    // bad
+    type stringOrNumber = string | number; // instead of camelCase use ProperCase.
+    
+    // good
+    type StringOrNumber = string | number;
+    type FilterType = 'chips' | 'checkbox' | 'radio' | 'calendar' | 'toggle';
+    ```
+
+
 ## Services
 1. HttpServices name should be appended with Http eg CustomerReviewHttpService.
     >  HttpServices are those which contains Http Calls for APIs.
