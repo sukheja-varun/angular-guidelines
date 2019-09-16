@@ -232,3 +232,107 @@ Use undefined. Do not use null.
     // good
     const [first, second] = arr;
     ```
+    
+    
+## Strings
+
+1. Use single quotes `''` for strings.
+
+    ```javascript
+    // bad
+    const name = "Capt. Janeway";
+
+    // bad - template literals should contain interpolation or newlines
+    const name = `Capt. Janeway`;
+
+    // good
+    const name = 'Capt. Janeway';
+    ```    
+    
+1. When programmatically building up strings, use template strings instead of concatenation.
+
+    > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+
+    ```javascript
+    // bad
+    function sayHi(name) {
+      return 'How are you, ' + name + '?';
+    }
+
+    // bad
+    function sayHi(name) {
+      return ['How are you, ', name, '?'].join();
+    }
+
+    // good
+    function sayHi(name) {
+      return `How are you, ${name}?`;
+    }
+    ```    
+
+
+## Arrow Functions
+
+1. When you must use an anonymous function (as when passing an inline callback), use arrow function notation.
+
+    > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+
+    > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
+
+    ```javascript
+    // bad
+    [1, 2, 3].map(function (x) {
+      const y = x + 1;
+      return x * y;
+    });
+
+    // good
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+    ```
+
+1. If the function body consists of a single statement returning an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a `return` statement.
+
+    > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+
+    ```javascript
+    // bad
+    [1, 2, 3].map((number) => {
+      const nextNumber = number + 1;
+      `A string containing the ${nextNumber}.`;
+    });
+
+    // good
+    [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
+
+    // good
+    [1, 2, 3].map((number) => {
+      const nextNumber = number + 1;
+      return `A string containing the ${nextNumber}.`;
+    });
+
+    // good
+    [1, 2, 3].map((number, index) => ({
+      [index]: number,
+    }));
+
+    // No implicit return with side effects
+    function foo(callback) {
+      const val = callback();
+      if (val === true) {
+        // Do something if callback returns true
+      }
+    }
+
+    let bool = false;
+
+    // bad
+    foo(() => bool = true);
+
+    // good
+    foo(() => {
+      bool = true;
+    });
+    ```
