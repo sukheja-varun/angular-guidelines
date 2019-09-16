@@ -336,3 +336,92 @@ Use undefined. Do not use null.
       bool = true;
     });
     ```
+
+
+## Properties
+
+1. Use dot notation when accessing properties.
+
+    ```javascript
+    const luke = {
+      jedi: true,
+      age: 28,
+    };
+
+    // bad
+    const isJedi = luke['jedi'];
+
+    // good
+    const isJedi = luke.jedi;
+    ```
+
+1. Use bracket notation `[]` when accessing properties with a variable.
+
+    ```javascript
+    const luke = {
+      jedi: true,
+      age: 28,
+    };
+
+    function getProp(prop) {
+      return luke[prop];
+    }
+
+    const isJedi = getProp('jedi');
+    ```
+1. Use exponentiation operator `**` when calculating exponentiations.
+
+    ```javascript
+    // bad
+    const binary = Math.pow(2, 10);
+
+    // good
+    const binary = 2 ** 10;
+    ```
+    
+## Comparison Operators & Equality
+
+1. Use `===` and `!==` over `==` and `!=`.
+
+1. Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+
+    - **Objects** evaluate to **true**
+    - **Undefined** evaluates to **false**
+    - **Null** evaluates to **false**
+    - **Booleans** evaluate to **the value of the boolean**
+    - **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
+    - **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+
+1. Ternaries should not be nested and generally be single line expressions.
+
+    ```javascript
+    // bad
+    const foo = maybe1 > maybe2
+      ? "bar"
+      : value1 > value2 ? "baz" : null;
+
+    // split into 2 separated ternary expressions
+    const maybeNull = value1 > value2 ? 'baz' : null;
+
+    // better
+    const foo = maybe1 > maybe2
+      ? 'bar'
+      : maybeNull;
+
+    // best
+    const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
+    ```
+
+1. Avoid unneeded ternary statements.
+
+    ```javascript
+    // bad
+    const foo = a ? a : b;
+    const bar = c ? true : false;
+    const baz = c ? false : true;
+
+    // good
+    const foo = a || b;
+    const bar = !!c;
+    const baz = !c;
+    ```
