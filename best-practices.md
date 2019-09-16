@@ -152,3 +152,42 @@ Use undefined. Do not use null.
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
 
+## Arrays
+
+1. Use array spreads ... to copy arrays.
+    ```javascript
+    // bad
+    const len = items.length;
+    const itemsCopy = [];
+    let i;
+
+    for (i = 0; i < len; i += 1) {
+      itemsCopy[i] = items[i];
+    }
+
+    // good
+    const itemsCopy = [...items];
+    
+    ```
+1. To convert an iterable object to an array, use spreads `...` instead of [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+
+    ```javascript
+    const foo = document.querySelectorAll('.foo');
+
+    // good
+    const nodes = Array.from(foo);
+
+    // best
+    const nodes = [...foo];
+    ```
+1. Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) for converting an array-like object to an array.
+
+    ```javascript
+    const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 };
+
+    // bad
+    const arr = Array.prototype.slice.call(arrLike);
+
+    // good
+    const arr = Array.from(arrLike);
+    ```    
