@@ -164,22 +164,26 @@
     
 
 ## Interfaces
-1. Use ProperCase (PascalCase) when naming interfaces.
+1. Use ProperCase (PascalCase) when naming interfaces and use I(aai) as suffix for interface names, eg CustomerReviewI.
     ```
     // bad
-    interface person {
+    interface person { // not used ProperCase and suffix I 
+      name: string;
+      age:  number;
+    }  
+    
+     // bad
+    interface Person {  // suffix I is not used
       name: string;
       age:  number;
     }  
     
     // good
-    interface Person {
+    interface PersonI {
       name: string;
       age:  number;
     }  
     ```
-
-1. Use I(aai) as suffix for interface names, eg CustomerReviewI.
 
 
 ## Types
@@ -219,6 +223,7 @@
 1. File naming pattern should be `<file-name>.<file-type>.<extension>`.
 
     File type could be model, constant, module, component, directive, guard, interceptor, service, etc.
+    > Use hyphen (-) as seperator in `<file-name>` part
     ```
     // bad
     sidebarMenu.constant.ts // file name should not be in camelCase
@@ -229,14 +234,4 @@
     sidebar-menu.constant.ts
     not-found.component.ts    
     ```
-
-1. Use **lower-case** when naming folders and use hypehn(-) as seperator.
-    ```
-    // bad 
-    laguageTranslation
-    LaguageTranslation
-    Laguage-Translation
-    
-    // good
-    laguage-translation // using - as seperator
     
