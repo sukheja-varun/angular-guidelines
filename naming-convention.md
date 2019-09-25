@@ -60,7 +60,7 @@
 
 
 ## Constants
-1. User **UPPER_CASE** when naming constants and use underscore(_) as seperator.
+1. User **UPPER_CASE** when naming constants and use underscore(_) as separator.
     ```
     // bad
     export const THING_TO_BE_CHANGED = 'should obviously not be uppercased';
@@ -207,7 +207,7 @@
 
     
 ## Folders
-1. Use **lower-case** when naming folders and use hypehn(-) as seperator.
+1. Use **lower-case** when naming folders and use hypehn(-) as separator.
     ```
     // bad 
     laguageTranslation
@@ -215,7 +215,7 @@
     Laguage-Translation
     
     // good
-    laguage-translation (using - as seperator)
+    laguage-translation (using - as separator)
     ```
 
 
@@ -223,7 +223,7 @@
 1. File naming pattern should be `<file-name>.<file-type>.<extension>`.
 
     File type could be model, constant, module, component, directive, guard, interceptor, service, etc.
-    > Use hyphen (-) as seperator in `<file-name>` part
+    > Use hyphen (-) as separator in `<file-name>` part
     ```
     // bad
     sidebarMenu.constant.ts // file name should not be in camelCase
@@ -234,4 +234,16 @@
     sidebar-menu.constant.ts
     not-found.component.ts    
     ```
+    
+## Routes
+1. Routes should be all in lower-case with hyphen (-) as separator.
+    ```
+    // bad 
+    Settings/Account/Details/Some-other-route // ❌  
+    settings/account/details/someOtherRoute  // ❌ 
+    
+    // good
+    settings/account/details/some-other-route 
+    ```
+
     
